@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Choisir une langue – MONDO FÂ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: cyan;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 420px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    img {
+      width: 110px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #2e7d32;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      margin-bottom: 24px;
+      color: #477;
+      font-size: 0.95rem;
+    }
+
+    .lang-btn {
+      width: 100%;
+      padding: 16px;
+      margin-bottom: 14px;
+      font-size: 1.05rem;
+      border: none;
+      border-radius: 14px;
+      background: #2e7d32;
+      color: white;
+      cursor: pointer;
+    }
+
+    .lang-btn:active {
+      transform: scale(0.98);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img src="assets/logo.png" alt="MONDO FÂ">
+
+    <h1>Choisis une langue</h1>
+    <div class="subtitle">Langue maternelle de l’enfant</div>
+
+    <button class="lang-btn" onclick="selectLanguage('baoule')">
+      🟢 Baoulé
+    </button>
+
+    <button class="lang-btn" onclick="selectLanguage('bete')">
+      🔵 Bété
+    </button>
+
+    <button class="lang-btn" onclick="selectLanguage('dioula')">
+      🟡 Dioula
+    </button>
+
+    <button class="lang-btn" onclick="selectLanguage('agni')">
+      🟣 Agni
+    </button>
+
+    <button class="lang-btn" onclick="selectLanguage('senoufo')">
+      🟠 Sénoufo
+    </button>
+  </div>
+
+  <!-- ÉTAT GLOBAL -->
+  <script src="state.js"></script>
+
+  <script>
+    function selectLanguage(lang) {
+      if (!window.APP_STATE) {
+        alert("Erreur : état non chargé");
+        return;
+      }
+
+      APP_STATE.language = lang;
+      APP_STATE.category = null; // reset sécurité
+      saveState();
+
+      // Étape suivante
+      window.location.href = "categories.html";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>MONDO FÂ — Apprendre</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- STYLE GLOBAL -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="blue-bg">
+
+  <div class="container">
+
+    <!-- LOGO -->
+    <img src="assets/logo.png" alt="MONDO FÂ" class="logo">
+
+    <h1>📘 Mode Apprendre</h1>
+
+    <!-- CONTENU -->
+    <div id="emoji" class="emoji"></div>
+    <div id="native" class="native-text"></div>
+    <div id="fr" class="fr-text"></div>
+
+    <!-- AUDIO FR -->
+    <button id="speak-fr" class="btn audio">
+      🔊 Écouter en français
+    </button>
+
+    <!-- ACTIONS -->
+    <div class="actions">
+      <button class="btn back" onclick="quitLearn()">
+        ⬅️ Catégories
+      </button>
+      <button class="btn next" onclick="nextItem()">
+        ➡️ Suivant
+      </button>
+    </div>
+
+  </div>
+
+  <!-- ORDRE STRICT – NE PAS CHANGER -->
+  <script src="state.js"></script>
+  <script src="js/data.js"></script>
+  <script src="apprendre.js"></script>
+
+  <script>
+    function quitLearn() {
+      APP_STATE.index = 0;     // reset apprentissage
+      APP_STATE.mode = null;
+      saveState();
+      window.location.href = "categories.html";
+    }
+  </script>
+
+</body>
+</html>

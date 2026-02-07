@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>MONDO FÂ — Jouer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ✅ CSS GLOBAL -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ✅ HEADER -->
+  <div class="header">
+  </div>
+
+  <div class="container">
+
+    <h1>🎮 Mode Jouer</h1>
+
+    <div class="info" id="info"></div>
+
+    <!-- ✅ PROGRESSION -->
+    <div id="progress-container">
+      <div id="progress-text"></div>
+      <div id="progress-bar">
+        <div id="progress-fill"></div>
+      </div>
+    </div>
+
+    <div id="question"></div>
+    <div id="choices"></div>
+    <div id="score"></div>
+    <div id="percent"></div>
+
+  </div>
+
+  <!-- ⚠️ ORDRE STRICT – NE PAS CHANGER -->
+  <script src="state.js"></script>
+  <script src="js/data.js"></script>
+  <script src="jouer.js"></script>
+
+  <script>
+    if (window.APP_STATE) {
+      const { language, category } = window.APP_STATE;
+      if (language && category) {
+        document.getElementById("info").innerText =
+          `Langue : ${language.toUpperCase()} | Catégorie : ${category}`;
+      }
+    }
+  </script>
+
+</body>
+</html>

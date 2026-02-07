@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Choisir une catégorie – MONDO FÂ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ✅ CSS GLOBAL -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ✅ BARRE LOGO -->
+  <div class="header">
+  </div>
+
+  <div class="container">
+
+    <img src="assets/logo.png" alt="MONDO FÂ" class="logo">
+
+    <h1>Choisis une catégorie</h1>
+    <div class="subtitle" id="lang-info"></div>
+
+    <button class="cat-btn" onclick="selectCategory('corps')">
+      🧍‍♂️ Corps humain
+    </button>
+
+    <button class="cat-btn" onclick="selectCategory('ecole')">
+      🎒 Outils de l’école
+    </button>
+
+    <button class="cat-btn" onclick="selectCategory('maison')">
+      🏠 Outils de la maison
+    </button>
+
+    <button class="cat-btn" onclick="selectCategory('nombres')">
+      🔢 Nombres
+    </button>
+
+  </div>
+
+  <!-- ÉTAT GLOBAL -->
+  <script src="state.js"></script>
+
+  <script>
+    /* ============================
+       MONDO FÂ – CATÉGORIES
+       ============================ */
+
+    // Affichage langue sélectionnée
+    if (window.APP_STATE && window.APP_STATE.language) {
+      document.getElementById("lang-info").innerText =
+        "Langue sélectionnée : " +
+        window.APP_STATE.language.toUpperCase();
+    } else {
+      document.getElementById("lang-info").innerText =
+        "Aucune langue sélectionnée";
+    }
+
+    // Sélection catégorie → redirection vers MODE
+    function selectCategory(category) {
+      APP_STATE.category = category;
+      APP_STATE.index = 0;
+      APP_STATE.score = 0;
+      saveState();
+
+      window.location.href = "mode.html";
+    }
+  </script>
+
+</body>
+</html>
